@@ -1,0 +1,30 @@
+{
+  "name": "com.4dage.spacetarget",
+  "version": "1.0.0-preview.1",
+  "displayName": "4DAGE-SpaceTarget",
+  "description": "SpaceTarget is a 4DAGE powered environment tracking feature that enables you to track and augment areas and spaces. By using a 4DKK 3D-Camera to create a database",
+  "unity": "2019.4",
+  "dependencies": {
+    "com.unity.xr.arfoundation": "3.1.6",
+    "com.unity.xr.arsubsystems": "3.1.6",
+    "com.unity.xr.arcore": "3.1.8",
+    "com.unity.xr.arkit": "3.1.8"
+  },
+  "keywords": [
+    "AreaTarget",
+    "SpaceTarget",
+    "AR"
+  ],
+  "author": {
+    "name": "4DAGE",
+    "email": "zhongwentong@cgaii.com",
+    "url": "https://www.4dage.com"
+  },
+  "samples": [
+    {
+      "displayName": "SpaceTarget Sample Scene",
+      "description": "SpaceTarget demo",
+      "path": "Samples~/Scenes/SpaceTargetSampleScene"
+    }
+  ]
+}
