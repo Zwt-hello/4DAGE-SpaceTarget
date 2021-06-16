@@ -49,14 +49,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param principalPoint principalPoint
 /// @param resolution resolution of image
 /// @param imageData   byte pointer of image data
--(BOOL)imageLocalProcessWithPosition:(vector<float>)position
-                            rotation:(vector<float>)rotation
-                         focalLength:(vector<float>)focalLength
-                      principalPoint:(vector<float>)principalPoint
-                          resolution:(vector<int>)resolution
-                             arPoint:(vector<float>)arPoint
-                           imageData:(Byte *)imageData
-                          byteLength:(long)byteLength;
+//-(BOOL)imageLocalProcessWithPosition:(vector<float>)position
+//                            rotation:(vector<float>)rotation
+//                         focalLength:(vector<float>)focalLength
+//                      principalPoint:(vector<float>)principalPoint
+//                          resolution:(vector<int>)resolution
+//                             arPoint:(vector<float>)arPoint
+//                           imageData:(Byte *)imageData
+//                          byteLength:(long)byteLength;
 
 
 /// @brief  if sucess get the json result
@@ -112,14 +112,31 @@ typedef struct
 
 BOOL  _iOS_init_FKARSFM(char *operationPath,char *sfmARBinFilePath,char *sfmARDescFilePath,char *sfmARfeatFilePath);
 
-BOOL _iOS_process_FKARSFM(AR_SFM_Point                      position,
-                          AR_SFM_rotation                   rotation,
-                          AR_SFM_focalLength                focalLength,
-                          AR_SFM_principalPoint             principalPoint,
-                          AR_SFM_resolution                 resolution,
-                          int                               method,
-                          Byte *imageData,
-                          long byteLength);
+BOOL _iOS_process_FKARSFM(AR_SFM_Point          position,
+                          AR_SFM_rotation       rotation,
+                          AR_SFM_focalLength    focalLength,
+                          AR_SFM_principalPoint principalPoint,
+                          AR_SFM_resolution     resolution,
+                          int                   method,
+                          Byte*                 imageData,
+                          long                  byteLength,
+                          char*                 csys_x,
+                          char*                 csys_y,
+                          char*                 csys_z,
+                          int                   platform);
+
+BOOL _iOS_process_FKARSFM_RGB24(AR_SFM_Point               position,
+                                AR_SFM_rotation            rotation,
+                                AR_SFM_focalLength         focalLength,
+                                AR_SFM_principalPoint      principalPoint,
+                                AR_SFM_resolution          resolution,
+                                int                        method,
+                                Byte*                      imageData,
+                                long                       byteLength,
+                                char*                      csys_x,
+                                char*                      csys_y,
+                                char*                      csys_z,
+                                int                        platform);
 
 
 char* _iOS_get_result_FKARSFM();
