@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using ARBase.Runtime;
+using SpaceTarget.Runtime;
 
 public class DefaultTrackableEventHandler : MonoBehaviour
 {
-    protected SpaceTargetTrackableBehaviour mSpaceTargetTrackableBehaviour;
+    protected SpaceTargetBehaviour mSpaceTargetTrackableBehaviour;
 
     public UnityEvent OnTargetFound;
     public UnityEvent OnTargetLost;
 
     protected virtual void Start()
     {
-        mSpaceTargetTrackableBehaviour = GetComponent<SpaceTargetTrackableBehaviour>();
+        mSpaceTargetTrackableBehaviour = GetComponent<SpaceTargetBehaviour>();
         if (mSpaceTargetTrackableBehaviour)
         {
-            mSpaceTargetTrackableBehaviour.RegisterTrackingStatusEvent(OnTrackingFound, OnTrackingLost);
+            mSpaceTargetTrackableBehaviour.RegisterTargetStatusEvent(OnTrackingFound, OnTrackingLost);
         }
     }
     protected virtual void OnDestroy()
     {
         if (mSpaceTargetTrackableBehaviour)
         {
-            mSpaceTargetTrackableBehaviour.UnregisterTrackingLostEvent(OnTrackingFound, OnTrackingLost);
+            mSpaceTargetTrackableBehaviour.UnregisterTargetLostEvent(OnTrackingFound, OnTrackingLost);
         }
     }
     public virtual void OnTrackingFound()
