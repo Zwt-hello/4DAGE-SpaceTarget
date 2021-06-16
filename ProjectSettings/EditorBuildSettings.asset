@@ -6,8 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/4DAGE-SpaceTarget/Samples/Scenes/SpaceTargetSampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/4DAGE-SpaceTarget/Samples/Scenes/SpaceTarget-base on ARFoundation
+      Example.unity
+    guid: ffccaebe81657a54da1566e5f8c10fed
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 40693dd71cfeed54cba4ef58687948f0,
       type: 2}

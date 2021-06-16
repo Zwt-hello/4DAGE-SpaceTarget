@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f62837697d7d1943ba077b48819fabf
+guid: 98050fac4f27d5e4bb2afdc14915a546
 folderAsset: yes
 PluginImporter:
   externalObjects: {}
@@ -76,7 +76,7 @@ PluginImporter:
         AddToEmbeddedBinaries: false
         CPU: AnyCPU
         CompileFlags: 
-        FrameworkDependencies: 
+        FrameworkDependencies: CoreML;
   userData: 
   assetBundleName: 
   assetBundleVariant: 
