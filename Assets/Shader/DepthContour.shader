@@ -30,7 +30,7 @@
 
     SubShader 
     {
-        Tags { "Queue" = "Geometry" }
+        Tags { "Queue" = "Geometry-10" }
         
         Pass 
         { 
