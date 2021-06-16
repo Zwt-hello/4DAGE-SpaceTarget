@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ARBase.EditorClasses
+namespace SpaceTarget.EditorClasses
 {
     [CustomEditor(typeof(DefaultTrackableEventHandler))]
     [CanEditMultipleObjects]
