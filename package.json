@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mraoge/4DAGE-SpaceTarget.git"
+    "url": "git+https://github.com/Zwt-hello/4DAGE-SpaceTarget.git"
   },
   "author": {
     "name": "4DAGE",
@@ -26,9 +26,9 @@
   },
   "samples": [
     {
-      "displayName": "SpaceTarget Base on ARFoundation Sample Scene",
+      "displayName": "SpaceTarget Base on ARFoundation Sample",
       "description": "SpaceTarget demo",
-      "path": "Samples~/Scenes/SpaceTarget-base on ARFoundation Example"
+      "path": "Samples~/Base on ARFoundation Example"
     }
   ]
 }
