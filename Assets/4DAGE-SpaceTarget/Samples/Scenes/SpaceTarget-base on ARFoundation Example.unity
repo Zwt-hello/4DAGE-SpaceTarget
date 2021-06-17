@@ -179,12 +179,7 @@ MonoBehaviour:
   m_ARCameraRoot: {fileID: 1708544365}
   databaseList:
   - ---Empty---
-  - 4dage
-  - floor1
-  - floor2
   - floor5
-  - Html34yLt
-  - outdoor
   index: 0
   databaseID: ---Empty---
   databasePrefab: {fileID: 0}
@@ -193,7 +188,7 @@ MonoBehaviour:
   addOcclusion: 0
   showOutline: 0
   addTransparent: 0
-  isTransparented: 0
+  isTransparented: 1
 --- !u!4 &40919617
 Transform:
   m_ObjectHideFlags: 0
