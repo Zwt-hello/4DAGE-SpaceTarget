@@ -1,6 +1,6 @@
 {
   "name": "com.4dage.spacetarget",
-  "version": "1.0.0",
+  "version": "1.0.0-preview.1",
   "displayName": "4DAGE-SpaceTarget",
   "description": "SpaceTarget is a 4DAGE powered environment tracking feature that enables you to track and augment areas and spaces. By using a 4DKK 3D-Camera to create a database",
   "unity": "2019.4",
