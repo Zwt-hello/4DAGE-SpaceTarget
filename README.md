@@ -220,9 +220,9 @@ namespace SpaceTarget.Runtime
 	```csharp
 	public struct Intrinsics
 	{
-			public Vector2Int resolution;
-			public Vector2 focalLength;
-			public Vector2 principalPoint;
+		public Vector2Int resolution;
+		public Vector2 focalLength;
+		public Vector2 principalPoint;
 	}
 	```
 
@@ -233,21 +233,21 @@ namespace SpaceTarget.Runtime
 	```csharp
 	public struct CameraImageData
 	{
-			public byte[] rawImageData;
-			public SupportedTextureFormat supportedTextureFormat;
-			public CameraImageOrientation rawImageOrientation;
+		public byte[] rawImageData;
+		public SupportedTextureFormat supportedTextureFormat;
+		public CameraImageOrientation rawImageOrientation;
 	}
 	public enum SupportedTextureFormat
 	{
-			RGBA32 = 0,
-			RGB24 = 1
+		RGBA32 = 0,
+		RGB24 = 1
 	}
 	public enum CameraImageOrientation 
 	{
-			NONE = 0,
-			UPSIDE_DOWN = 1,
-			LEFT = 2,
-			RIGHT = 3
+		NONE = 0,
+		UPSIDE_DOWN = 1,
+		LEFT = 2,
+		RIGHT = 3
 	}
 	```
 
@@ -284,9 +284,9 @@ namespace SpaceTarget.Runtime
 	```csharp
 	public enum ARBaseSessionTrackingState 
 	{
-			NONE = 0,
-			LIMITED = 1,
-			TRACKING = 2
+		NONE = 0,
+		LIMITED = 1,
+		TRACKING = 2
 	}
 	```
 
@@ -312,10 +312,10 @@ namespace SpaceTarget.Runtime
 	```csharp
 	namespace SpaceTarget.Runtime
 	{
-			public interface IARBaseProvider
-			{
-				IARBase Create();
-			}
+		public interface IARBaseProvider
+		{
+			IARBase Create();
+		}
 	}
 	```
 
@@ -324,10 +324,10 @@ namespace SpaceTarget.Runtime
 	```csharp
 	public class ThirdPartyARProviderTemplate : IARBaseProvider
 	{
-			public IARBase Create()
-			{
-				return new ThirdPartyARInterfaceTemplate();
-			}
+		public IARBase Create()
+		{
+			return new ThirdPartyARInterfaceTemplate();
+		}
 	}
 	```
 
@@ -340,11 +340,11 @@ namespace SpaceTarget.Runtime
 // Start is called before the first frame update
 public virtual void Start()
 {
-		if (spaceTargetBehaviour != null)
-		{
-			IARBaseProvider mARProvider = new ThirdPartyARProviderTemplate();
-			spaceTargetBehaviour.StartTracking(mARProvider);
-		}
+	if (spaceTargetBehaviour != null)
+	{
+		IARBaseProvider mARProvider = new ThirdPartyARProviderTemplate();
+		spaceTargetBehaviour.StartTracking(mARProvider);
+	}
 }
 ```
 
