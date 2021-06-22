@@ -1,12 +1,10 @@
-[TOC]
-
 # Space Targets in Unity
 SpaceTarget是4DAGE支持的空间识别插件。通过使用4DKK-Pro三维相机作为空间建模的采集工具，将生成的模型数据作为空间识别的识别数据，你可以轻松地将AR增强现实内容无缝叠加到现实环境中。通过此插件可以创建游戏、导航应用、空间标示，并应用在办公室、工厂车间、公寓、公共场所、博物馆等不同空间场所。
-![space target](http://192.168.0.97:3000/ApplicationProjectsGroup/4DAGE-SpaceTarget/raw/master/Documentation/images/spacetarget.gif)
+![space target](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/all.gif)
 
 SDK架构
 
-![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/70d39f2d3ba6ec468affb66eeb404184&showdoc=.jpg)
+![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/u3d.jpg)
 
 此SDK中不包含空间目标数据，你需要使用支持的设备采集创建您自己的空间数据。请参阅[数据采集](http://... "数据采集")文档，以了解更多信息。
 
@@ -49,7 +47,7 @@ SDK架构
 1. 创建一个Space Target对象，并添加`ARFoundationManager.cs`脚本，并指定相关的参数
 	>  GameObject -> 4DAGE-SpaceTarget -> Space Target
 
-	> ![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/e743ea32c745a2702494eb27ee514f71&showdoc=.jpg)
+	> ![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t1.jpg)
 
 	**查看案例场景**
 	```
@@ -60,11 +58,11 @@ SDK架构
 1. 点击**Add Database** 按钮，输入空间 Taget id下载数据Database
 *如何获取数据？请参阅[数据采集](http://... "数据采集")*
 
-	![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/0693a544a2d190f0959ed6c63b1e7097&showdoc=.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t3.jpg)
 
 1. 在SpaceTarget对象上选择您已下载的空间数据
 
-	![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/24a4b31a2bba1a359bbf7bc16621f028&showdoc=.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t2.jpg)
 
 	参数说明：
 
@@ -83,7 +81,7 @@ SDK架构
 	>`Show Outline` ： *显示模型描边*
 
 1. 添加您的3D内容到场景中，并将内容作为SpaceTarget的**子物体**
-![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/2ca900579d347a807c0f2b0d8034f548&showdoc=.jpg)
+![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t4.jpg)
 
 ## 构建项目
 ### 基本设置
@@ -91,7 +89,7 @@ SDK架构
 
 1. 请将Player Settings -> Api Compatibility Level 设置为 .NET 4.x , 如果构建Android，请将Android Minimum API Level 设置为 Android 7.0 以上。
 
-	![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/2316f1f269191d37776b731121beae3e&showdoc=.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t5.jpg)
 
 1. Enjoy yourself!
 
@@ -109,7 +107,7 @@ Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或�
 
 1. 转到Preferences > External Tools > Android > Gradle ，并将自定义Gradle设置为 Gradle 5.6.4或更高版本。有关下载，请参阅[Gradle构建工具](https://gradle.org/releases/ "Gradle构建工具")。
 
-	![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/4958639ab6949d4448996b9b1c35a805&showdoc=.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a1.jpg)
 
 1. 转到Project Settings > Player > Android tab > Publishing Settings > Build ，然后选择两者：
 
@@ -117,7 +115,7 @@ Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或�
 	
 	`Custom Launcher Gradle Template`
 
-	![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/0101d6c71a91a08259c676557f11ef05&showdoc=.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a2.jpg)
 
 1. 对两个生成的文件应用以下更改：
 
@@ -264,19 +262,19 @@ namespace SpaceTarget.Runtime
 
 	- 假设图像如下图是正常朝向，则选择 `CameraImageOrientation = NONE`
 
-		![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/80adf460df74c45cb41d3f84e5822267&showdoc=.jpg)
+		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t61.jpg)
 
 	- 假设图像如下图是向左朝向，则选择 `CameraImageOrientation = LEFT`
 
-		![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/90f2355a4c5b98bb7f500293fc941bf5&showdoc=.jpg)
+		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t62.jpg)
 
 	- 假设图像如下图是向右朝向，则选择 `CameraImageOrientation = RIGHT`
 
-		![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/0be4cf45b0e617f96c9670288da3b8ed&showdoc=.jpg)
+		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t63.jpg)
 
 	- 假设图像如下图是上下反转，则选择 `CameraImageOrientation = UPSIDE_DOWN`
 
-		![](http://doc.4dage.com:2999/server/index.php?s=/api/attachment/visitFile/sign/63c41a36671e85a22253a307d4dc5b09&showdoc=.jpg)
+		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t64.jpg)
 
 1.  **ARBaseSessionTrackingState ARSessionTrackingState()**
 
