@@ -19,6 +19,11 @@ public class ARFoundationPackageConfig
 
     static readonly string sPackagesPath = Path.Combine(Application.dataPath, "..", "Packages");
     static readonly string sManifestJsonPath = Path.Combine(sPackagesPath, "manifest.json");
+
+    private const string pkgPath = "Assets/4DAGE-SpaceTarget/Samples/ARFoundationSample.unitypackage";
+    //private const string pkg_upm = "Packages/com.4dage.spacetarget/Samples~/ARFoundationSample.unitypackage";
+    private const string samplePath = "Assets/4DAGE-SpaceTarget/Samples/Base on ARFoundation Example";
+
     static ARFoundationPackageConfig()
     {
         if (Application.isBatchMode)
@@ -27,10 +32,26 @@ public class ARFoundationPackageConfig
         var manifest = Manifest.JsonDeserialize(sManifestJsonPath);
         if (!CheckARisExist(manifest))
         {
-            if (EditorUtility.DisplayDialog("Add ARFoundation Package",
-            "SpaceTarget Sample base on ARFoundation(ARKit/ARCore), Please allow to import the packages\n" , "Import", "Cancel"))
+            //check dependence
+            UpdateManifest(manifest);
+            //if (EditorUtility.DisplayDialog("Add ARFoundation Package",
+            //"SpaceTarget Sample base on ARFoundation(ARKit/ARCore), Please allow to import the packages\n" , "Import", "Cancel"))
+            //{
+            //    UpdateManifest(manifest);
+            //}
+        }
+        else
+        {
+            //check sample
+            if (!AssetDatabase.IsValidFolder(samplePath))
             {
-                UpdateManifest(manifest);
+                //check file
+                string isPath_proj = Path.GetFullPath(pkgPath);
+                FileInfo fi = new FileInfo(isPath_proj);
+                if (fi.Exists)
+                {
+                    AssetDatabase.ImportPackage(pkgPath, false);
+                }
             }
         }
     }

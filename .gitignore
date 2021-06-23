@@ -9,6 +9,10 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/_DocSite/
+/Documentation/
+/Assets/**/obj*
+*.no
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -58,3 +62,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/打包Package时，不要勾选Samples下的Base on ARFoundation Example.no.meta
