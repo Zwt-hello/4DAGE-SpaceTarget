@@ -144,6 +144,9 @@ char* _iOS_get_result_FKARSFM();
 
 void _iOS_close_FKARSFM();
 
+int _iOS_testhaha();
+
+int _iOS_setDebug(int isDebug);
 
 }
 
