@@ -200,8 +200,8 @@ namespace SpaceTarget.Runtime
 	public interface IARBase
 	{
 		Pose ARCameraTrackingPose();
-		ARBaseData.Intrinsics ARCameraIntrinsics();
-		ARBaseData.CameraImageData ARCameraRawImageData();
+		ARBaseCameraIntrinsics ARCameraIntrinsics();
+		ARBaseCameraImageData ARCameraRawImageData();
 		ARBaseSessionTrackingState ARSessionTrackingState();
 	}
 }
@@ -213,9 +213,9 @@ namespace SpaceTarget.Runtime
 
 	相机位姿，返回值为`UnityEngine.Pose`
 
-1.  **ARBaseData.Intrinsics ARCameraIntrinsics()**
+1.  **ARBaseCameraIntrinsics ARCameraIntrinsics()**
 
-	相机内参，返回值为`SpaceTaget.Runtime.ARBaseData.Intrinsics`
+	相机内参，返回值为`SpaceTaget.Runtime.ARBaseCameraIntrinsics`
 
 	```csharp
 	public struct Intrinsics
@@ -226,9 +226,9 @@ namespace SpaceTarget.Runtime
 	}
 	```
 
-1.  **ARBaseData.CameraImageData ARCameraRawImageData()**
+1.  **ARBaseCameraImageData ARCameraRawImageData()**
 
-	图像数据，返回值为`SpaceTarget.Runtime.ARBaseData.CameraImageData`
+	图像数据，返回值为`SpaceTarget.Runtime.ARBaseCameraImageData`
 
 	```csharp
 	public struct CameraImageData
