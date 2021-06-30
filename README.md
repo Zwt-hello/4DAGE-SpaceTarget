@@ -114,7 +114,7 @@ These versions are built with Gradle 5.6.4 or later and Gradle plugin 3.6.0 or l
 
 1. Go to **Preferences > External Tools > Android > Gradle**, and set the custom Gradle to Gradle 5.6.4 or later. See Gradle build tool for downloads.。How to download gradle，read [Gradle](https://gradle.org/releases/ "Gradle")。
 
-	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a1.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a1.png)
 
 1. Go to **Project Settings > Player > Android tab > Publishing Settings > Build** , and select both:
 
@@ -122,7 +122,7 @@ These versions are built with Gradle 5.6.4 or later and Gradle plugin 3.6.0 or l
 	
 	`Custom Launcher Gradle Template`
 
-	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a2.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a2.png)
 
 1. Apply the following changes to both generated files:
 
