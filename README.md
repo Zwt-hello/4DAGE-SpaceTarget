@@ -1,116 +1,122 @@
 # Space Targets in Unity
-SpaceTarget是4DAGE支持的空间识别插件。通过使用4DKK-Pro三维相机作为空间建模的采集工具，将生成的模型数据作为空间识别的识别数据，你可以轻松地将AR增强现实内容无缝叠加到现实环境中。通过此插件可以创建游戏、导航应用、空间标示，并应用在办公室、工厂车间、公寓、公共场所、博物馆等不同空间场所。
+
+[中文](Installation)
+
+SpaceTarget is an environment tracking feature plug-in that enables you to track and augment areas and spaces. By using the 4DKK-Pro 3D camera as an accurate model of the space to create an Space Target Database, you can easily deliver augmentations to stationary objects in the scanned environment. This enables creating games, navigation applications, and spatial instructions that are all using the surroundings as interactive elements to be explored. Offices, factory floors, apartments, public spaces, museums, and many more areas are ideal sites for Space Targets.
 
 ![space target](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/view.gif)
 
-SDK架构
 
-![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/u3d.jpg)
+This plug-in Not contain target Database , you need to use a supported device to Scan and Create your own spatial data。Please read [How to get SpaceTarget data](http://... "数据采集") doc 。
 
-此SDK中不包含空间目标数据，你需要使用支持的设备采集创建您自己的空间数据。请参阅[数据采集](http://... "数据采集")文档，以了解更多信息。
-
-# 要求
-> - 支持的Unity Editor
+# Requirements
+> - Unity Editor
 `Unity2019.4 +`
 
 ------------
-> - Api Compatibility Level 请选择 
+> - Api Compatibility Level 
 `.NET4.X`
 
 ------------
 
-> - 安卓系统
-`Android 7.0 +`
+> - `Android 7.0 +`
 
 ------------
 
-> - iOS系统
- `iOS 12 +`
+> - `iOS 12 +`
 
-# 安装
-- [从官网下载Package](http://... "从官网下载package")
-- [从Github安装](http://.. "从Github安装")
+# Installation
+- [UnityPackage](http://... "从官网下载package")
+- [Install from Github](http://.. "从Github安装")
 
-# 快速开始
-使用ARKit/ARCore
-> SDK已集成对ARKit、ARCore的支持，若您已有支持的设备，可直接使用SDK构建Android/iOS应用。
-- [查看安卓支持的设备](https://developers.google.com/ar/devices "查看安卓支持的设备")
-- [查看苹果支持的设备](https://www.apple.com.cn/augmented-reality/ "查看苹果支持的设备")
+# Features
+- Spatial recognition and environment tracking
+- Support ARKit and ARCore
+- Support third-party AREngine expansion
 
-## 创建Target
-1. 首先在 Unity 中创建并打开一个新项目。有关支持的 Unity Editor 版本，请参阅支持的版本。
+# Quick Start
+Using ARKit or ARCore
+> This Plug-in has integrated support for ARKit and ARCore , If you already have a supported device , you can directly use the SDK to build Android/iOS applications
+- [ARCore supported devices](https://developers.google.com/ar/devices "ARCore supported devices")
+- [ARKit supported devices](https://www.apple.com.cn/augmented-reality/ "ARKit supported devices")
 
-1. 向场景中添加**ARFoundation**(ARKit、ARCore)组件
+## Create Target
+
+1. First create and open a new project in Unity. For the supported Unity Editor versions, see Supported versions。
+
+1. Add **ARFoundation** (ARKit、ARCore) component
 	> GameObject -> XR -> AR Session
 	
 	> GameObject -> XR -> AR Session Origin
 
-1. 创建一个Space Target对象，并添加`ARFoundationManager.cs`脚本，并指定相关的参数
+1. Create a Space Target gameobject，and add `ARFoundationManager.cs` script .
 	>  GameObject -> 4DAGE-SpaceTarget -> Space Target
 
 	> ![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t1.jpg)
 
-	**查看案例场景**
+	**Samples scene**
 	```
 	Assets/4DAGE-SpaceTarget/Samples/Base on ARFoundation Example/Scene/SpaceTarget-base on ARFoundation Example
 	```
 
-## 配置Target
-1. 点击**Add Database** 按钮，输入空间 Taget id下载数据Database
-*如何获取数据？请参阅[数据采集](http://... "数据采集")*
+## Configration Target
+
+1. Click **Add Database** button to open database editor panel，input Taget id to download Datas.
+
+	*How to get datas？please read [How to get SpaceTarget data](http://... "How to get SpaceTarget data")*
 
 	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t3.jpg)
 
-1. 在SpaceTarget对象上选择您已下载的空间数据
+1. Select your target data
 
 	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t2.jpg)
 
-	参数说明：
+	Parameter Description：
 
 	>`World Center Mode` ：
 	>
-	>**DEVICE** *模式下，为了匹配真实世界，Target会随时改变位置*
+	>**DEVICE** *In this mode, in order to match the real world, Target will change its position at any time*
 	>
-	>**TARGET** *模式下，Target位置不会发生改变，需要指定ARCamera的根节点*
+	>**TARGET** *In this mode，the Target position will not change, you need to specify the root node of ARCamera*
 
-	>`Visible Database` : *在真实世界中显示/隐藏识别数据*
+	>`Visible Database` : *Show/hide recognition data*
 	
-	>`Add Occlusion` ：*添加深度遮挡，勾选后在真实世界中可以对3D内容实现遮挡*
+	>`Add Occlusion` ：*Add depth occlusion, occlude 3D content in the real world after checking*
 	
-	>`Transparent Database` ：*模型透明*
+	>`Transparent Database` ：*Model transparency*
 	
-	>`Show Outline` ： *显示模型描边*
+	>`Show Outline` ： *Show model outline*
 
-1. 添加您的3D内容到场景中，并将内容作为SpaceTarget的**子物体**
+1. Add your contents，and set the content as **child objects** of SpaceTarget
 ![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t4.jpg)
 
-## 构建项目
-### 基本设置
-1. 选择您需要构建的平台（Android/iOS）
+## Build
+### Basic Setting
+1. Select platform（Android/iOS）
 
-1. 请将Player Settings -> Api Compatibility Level 设置为 .NET 4.x , 如果构建Android，请将Android Minimum API Level 设置为 Android 7.0 以上。
+1. Check **Player Settings -> Api Compatibility Level** = .NET 4.x , If build for Android，Please set Android Minimum API Level = Android 7.0 +
 
 	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t5.jpg)
 
 1. Enjoy yourself!
 
-### 注意事项
+### Important !!!
 
-**如果构建平台为Android,请阅读以下内容**
+**If build for Android , Please read**
 
-Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或更高版本中使用这些版本的ARCore 时，需要 Gradle 5.6.4 或更高版本。具体参阅[ARCore主页](https://developers.google.com/ar/develop/unity/android-11-build "ARCore主页")，请参照以下文档设置您的项目，以保证安卓编译成功。
+To support Android 11（API level 30），When using these versions of ARCore with Unity 2018.4 or later , Unity requires Gradle 5.6.4 or later 。see detail [ARCore page](https://developers.google.com/ar/develop/unity/android-11-build "ARCore主页")，Please refer to the following documents to set up your project to ensure successful Android compilation.
 
-#### Unity 2020.1 或更高版本
+#### Unity 2020.1 or later
 
-这些版本是使用 Gradle 5.6.4 或更高版本以及 Gradle 插件 3.6.0 或更高版本构建的。无需任何操作。
+These versions are built with Gradle 5.6.4 or later and Gradle plugin 3.6.0 or later. No action is required.
 
-#### Unity 2019.4 系列版本
+#### Unity 2019.4
 
-1. 转到Preferences > External Tools > Android > Gradle ，并将自定义Gradle设置为 Gradle 5.6.4或更高版本。有关下载，请参阅[Gradle构建工具](https://gradle.org/releases/ "Gradle构建工具")。
+1. Go to **Preferences > External Tools > Android > Gradle**, and set the custom Gradle to Gradle 5.6.4 or later. See Gradle build tool for downloads.。How to download gradle，read [Gradle](https://gradle.org/releases/ "Gradle")。
 
 	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a1.jpg)
 
-1. 转到Project Settings > Player > Android tab > Publishing Settings > Build ，然后选择两者：
+1. Go to **Project Settings > Player > Android tab > Publishing Settings > Build** , and select both:
 
 	`Custom Main Gradle Template`
 	
@@ -118,17 +124,17 @@ Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或�
 
 	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a2.jpg)
 
-1. 对两个生成的文件应用以下更改：
+1. Apply the following changes to both generated files:
 
 	`Assets/Plugins/Android/mainTemplate.gradle`
 
 	`Assets/Plugins/Android/launcherTemplate.gradle`
 
-	分别打开这两个文件，如果顶部存在以下注释，请删除该注释：
+	Open these file，If present, remove the following comment at the top of the file:
 	```
 	// GENERATED BY UNITY. REMOVE THIS COMMENT TO PREVENT OVERWRITING WHEN EXPORTING AGAIN
 	```
-	在文件顶部插入以下几行：
+	Insert the following lines at the top of the file:
 	```
 	buildscript {
 		repositories {
@@ -154,45 +160,45 @@ Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或�
 	}
 	```
 
-# 使用自定义AR SDK
+# Using third-party AR SDK
 
-SpaceTarget 提供了接入第三方AR SDK 功能，可以根据开发者的需求，接入第三方ARSDK比如[EasyAR](https://www.easyar.cn/ "EasyAR") , [Vuforia](https://developer.vuforia.com/ "Vuforia")等。同时也可以接入第三方MR眼镜，比如[NReal](https://developer.nreal.ai/ "NReal ")。
+SpaceTarget provides access to the third-party AR SDK , such as [EasyAR](https://www.easyar.cn/ "EasyAR") , [Vuforia](https://developer.vuforia.com/ "Vuforia") 。Alse can access to the MR glasses，like [NReal](https://developer.nreal.ai/ "NReal ")。
 
-## 接入说明
+## How to implement
 
-接入前您需要了解以下内容，确保所接入SDK能够提供以下内容
+Before implement, you need to know the following contents to ensure that the third-party AR SDK can provide the following contents .
 
 - **Intrinsics**
 
 ```
-	相机内参：
-	-  Resolution: RGB(AR)相机输出的RawTexture的图像分辨率，类型：Vector2
-	-  FocalLength: RGB(AR)相机输出的RawTexture的图像焦距，类型：Vector2
-	-  PrincipalPoint: RGB(AR)相机输出的RawTexture的图像焦点位置，类型：Vector2
+Camera intrinsics：
+	-  Resolution: RGB(AR) Cam RawTexture's resolution，Types：Vector2
+	-  FocalLength: RGB(AR) Cam RawTexture's focal length，Types：Vector2
+	-  PrincipalPoint: RGB(AR) Cam RawTextur's principal point，Types：Vector2
 ```
 
 - **Pose**
 
 ```
-	相机实时位姿：
-	- Position: RGB(AR)相机的实时位移值，类型：Vector3
-	- Rotation: RGB(AR)相机的实时旋转值，类型：Quaternion
+Camera realtime pose：
+	- Position: RGB(AR) Cam's position，Types：Vector3
+	- Rotation: RGB(AR) Cam's rotation，Types：Quaternion
 ```
 
 - **RawTexture**
 
 ```
-	原始图像:
-	- RawImage：RGB(AR)相机的原始图像数据，类型：Byte[]
+	Rwa image:
+	- RawImage：RGB(AR) Cam's raw image data，Types：Byte[]
 ```
 
-## 快速接入
+## Quick implement
 
-若能满足接入说明的要求，即可以按照以下步骤在您新的工程中接入第三方SDK。
+If can meet the requirements of the implement instructions, you can follow the steps below to access the third-party SDK in your new project.
 
 ### Interface
 
-接口脚本：`IARBase.cs`
+The interface script：`IARBase.cs`
 
 ```csharp
 namespace SpaceTarget.Runtime
@@ -207,15 +213,15 @@ namespace SpaceTarget.Runtime
 }
 ```
 
-接口说明：
+Interface Description：
 
 1.  **Pose ARCameraTrackingPose()**
 
-	相机位姿，返回值为`UnityEngine.Pose`
+	Camera pose，return is `UnityEngine.Pose`
 
 1.  **ARBaseCameraIntrinsics ARCameraIntrinsics()**
 
-	相机内参，返回值为`SpaceTaget.Runtime.ARBaseCameraIntrinsics`
+	Camera intrinsics，return is `SpaceTaget.Runtime.ARBaseCameraIntrinsics`
 
 	```csharp
 	public struct Intrinsics
@@ -228,7 +234,7 @@ namespace SpaceTarget.Runtime
 
 1.  **ARBaseCameraImageData ARCameraRawImageData()**
 
-	图像数据，返回值为`SpaceTarget.Runtime.ARBaseCameraImageData`
+	The raw image data , return is `SpaceTarget.Runtime.ARBaseCameraImageData`
 
 	```csharp
 	public struct CameraImageData
@@ -251,35 +257,35 @@ namespace SpaceTarget.Runtime
 	}
 	```
 
-	***枚举参数选择说明***
+	***Enumeration parameter selection description***
 
-	`SupportedTextureFormat`：支持的图像格式。请根据获取的图像`rawImageData`选择相应的格式，目前支持`RGBA32`和`RGB24`两种格式的图像数据。
+	`SupportedTextureFormat`：Supported texture format 。Please select the corresponding format according to the acquired `rawImageData` , `RGBA32` and `RGB24` supported .
 
-	`CameraImageOrientation`：相机原始图像的旋转方向。请根据获取的图像`rawImageData`选择正确的朝向。
+	`CameraImageOrientation`：The orientation of raw image .Please select the correct orientation .
 
-	***如何确认图像朝向？***
+	***How to confirm the orientation of the raw image?***
 
-	通常从CPU获取的原始图像并不是我们肉眼看到的“正常”朝向。每个ARSDK由于算法的不一样，朝向都可能是不一致的，因此最快确认朝向的方法是将获取到的`rawImageData`Encoding保存为图片到本地查看其朝向。
+	Usually the original image obtained from the CPU is not the "normal" orientation that we see with the naked eye. Due to the different algorithms of each ARSDK, the orientation may be inconsistent, so the fastest way to confirm the orientation is to save the obtained `rawImageData`Encoding as an image and view its orientation locally.
 
-	- 假设图像如下图是正常朝向，则选择 `CameraImageOrientation = NONE`
+	- If the raw image is normal orientation , please select `CameraImageOrientation = NONE`
 
 		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t61.jpg)
 
-	- 假设图像如下图是向左朝向，则选择 `CameraImageOrientation = LEFT`
+	- If the raw image is left orientation , please select `CameraImageOrientation = LEFT`
 
 		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t62.jpg)
 
-	- 假设图像如下图是向右朝向，则选择 `CameraImageOrientation = RIGHT`
+	- If the raw image is right orientation , please select  `CameraImageOrientation = RIGHT`
 
 		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t63.jpg)
 
-	- 假设图像如下图是上下反转，则选择 `CameraImageOrientation = UPSIDE_DOWN`
+	- If the raw image is upside down , please select `CameraImageOrientation = UPSIDE_DOWN`
 
 		![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t64.jpg)
 
 1.  **ARBaseSessionTrackingState ARSessionTrackingState()**
 
-	ARSession的跟踪状态，返回值为`SpaceTarget.Runtime.ARBaseSessionTrackingState`
+	ARSession's tracking state，Return is `SpaceTarget.Runtime.ARBaseSessionTrackingState`
 
 	```csharp
 	public enum ARBaseSessionTrackingState 
@@ -293,21 +299,21 @@ namespace SpaceTarget.Runtime
 
 ### Interface Implemention
 
-1. 实现接口
+1. Implement the interface
 
-	> 根据以上的接口说明，请根据第三方SDK各自的特性具体实现接口`IARBase.cs`
+	> According to the above interface description, please implement the interface according to the characteristics of the third-party SDK `IARBase.cs`
 
-	模板：
+	Template：
 
-	> SpaceTarget也提供了接口实现模板 [ThirdPartyARInterfaceTemplate.cs](http://... "ThirdPartyARInterfaceTemplate.cs")
+	> SpaceTarget also provide an implemention template [ThirdPartyARInterfaceTemplate.cs](http://... "ThirdPartyARInterfaceTemplate.cs")
 
-	需要具体的实现案例参考？
+	Need demo ? 
 
-	> 具体实现案例可参考SpaceTarget中ARKit、ARCore的接口实现 [ARFoundationImplemention.cs](http://... "ARFoundationImplemention.cs")
+	> Please see ARKit、ARCore how to implement [ARFoundationImplemention.cs](http://... "ARFoundationImplemention.cs")
 
-1. 为实现的接口创建接口实体
+1. Create an interface provider for the implemented interface
 
-	接口实体的继承基类 `IARBaseProvider.cs`：
+	Inheritance base class of interface provider `IARBaseProvider.cs`：
 
 	```csharp
 	namespace SpaceTarget.Runtime
@@ -319,7 +325,7 @@ namespace SpaceTarget.Runtime
 	}
 	```
 
-	例如你已实现了接口 `ThirdPartyARInterfaceTemplate.cs` ，则此接口实体为:
+	If your implement `ThirdPartyARInterfaceTemplate.cs` ，provider is like :
 
 	```csharp
 	public class ThirdPartyARProviderTemplate : IARBaseProvider
@@ -333,7 +339,7 @@ namespace SpaceTarget.Runtime
 
 ### Interface Instance
 
-接口实现后，恭喜你，你只需几行代码即可实现调用。
+After the interface is implemented, congratulations, you only need a few lines of code to implement the call.
 
 ```csharp
 [SerializeField] SpaceTargetBehaviour spaceTargetBehaviour;
@@ -348,6 +354,6 @@ public virtual void Start()
 }
 ```
 
-## 案例参考
+## Samples
 //to do
 
