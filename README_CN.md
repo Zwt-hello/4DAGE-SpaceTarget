@@ -111,7 +111,7 @@ Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或�
 
 1. 转到Preferences > External Tools > Android > Gradle ，并将自定义Gradle设置为 Gradle 5.6.4或更高版本。有关下载，请参阅[Gradle构建工具](https://gradle.org/releases/ "Gradle构建工具")。
 
-	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a1.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a1.png)
 
 1. 转到Project Settings > Player > Android tab > Publishing Settings > Build ，然后选择两者：
 
@@ -119,7 +119,7 @@ Google ARCore 为了支持 Android 11（API 级别 30），在 Unity 2018.4 或�
 	
 	`Custom Launcher Gradle Template`
 
-	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a2.jpg)
+	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/a2.png)
 
 1. 对两个生成的文件应用以下更改：
 
