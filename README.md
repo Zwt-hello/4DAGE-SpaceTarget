@@ -1,6 +1,6 @@
 # Space Targets in Unity
 
-[中文](Installation)
+[中文](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/README_CN.md)
 
 SpaceTarget is an environment tracking feature plug-in that enables you to track and augment areas and spaces. By using the 4DKK-Pro 3D camera as an accurate model of the space to create an Space Target Database, you can easily deliver augmentations to stationary objects in the scanned environment. This enables creating games, navigation applications, and spatial instructions that are all using the surroundings as interactive elements to be explored. Offices, factory floors, apartments, public spaces, museums, and many more areas are ideal sites for Space Targets.
 
