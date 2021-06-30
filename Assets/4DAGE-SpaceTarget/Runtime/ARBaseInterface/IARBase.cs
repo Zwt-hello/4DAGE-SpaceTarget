@@ -2,6 +2,9 @@
 
 namespace SpaceTarget.Runtime
 {
+    /// <summary>
+    /// SpaceTarget's basic AREngine interface
+    /// </summary>
     public interface IARBase
     {
         /// <summary>
@@ -14,14 +17,14 @@ namespace SpaceTarget.Runtime
         /// ARCamera intrinsics
         /// </summary>
         /// <returns></returns>
-        ARBaseData.Intrinsics ARCameraIntrinsics();
+        ARBaseCameraIntrinsics ARCameraIntrinsics();
 
         /// <summary>
         /// ARCamera raw image data , 
         /// Please select the corresponding TextureFormat(RGBA32 or RGB24) to implement
         /// </summary>
         /// <returns></returns>
-        ARBaseData.CameraImageData ARCameraRawImageData();
+        ARBaseCameraImageData ARCameraRawImageData();
 
         /// <summary>
         /// ARSession tracking state

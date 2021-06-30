@@ -1,6 +1,9 @@
 ﻿
 namespace SpaceTarget.Runtime
 {
+    /// <summary>
+    /// Raw image orientation type
+    /// </summary>
     public enum CameraImageOrientation 
     {
         /// <summary>

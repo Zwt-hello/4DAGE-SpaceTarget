@@ -22,9 +22,9 @@ public class ARFoundationImplemention :IARBase
     /// Get ARKit/ARCore camera intrinsics
     /// </summary>
     /// <returns></returns>
-    public ARBaseData.Intrinsics ARCameraIntrinsics()
+    public ARBaseCameraIntrinsics ARCameraIntrinsics()
     {
-        ARBaseData.Intrinsics camIntrinsics = new ARBaseData.Intrinsics();
+        ARBaseCameraIntrinsics camIntrinsics = new ARBaseCameraIntrinsics();
         if (m_ARCameraManager != null)
         {
             if(m_ARCameraManager.TryGetIntrinsics(out XRCameraIntrinsics intrinsics))
@@ -42,9 +42,9 @@ public class ARFoundationImplemention :IARBase
     /// Get camera rawImage(TextureFormat = RGBA32) data
     /// </summary>
     /// <returns></returns>
-    public unsafe ARBaseData.CameraImageData ARCameraRawImageData()
+    public unsafe ARBaseCameraImageData ARCameraRawImageData()
     {
-        ARBaseData.CameraImageData data = new ARBaseData.CameraImageData();
+        ARBaseCameraImageData data = new ARBaseCameraImageData();
 
         if (!m_ARCameraManager.TryGetLatestImage(out XRCameraImage image))
         {

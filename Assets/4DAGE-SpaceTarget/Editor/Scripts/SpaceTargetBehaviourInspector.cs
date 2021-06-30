@@ -54,7 +54,10 @@ namespace SpaceTarget.EditorClasses
                 spaceTarget.visiblePrefab = true;
                 spaceTarget.addOcclusion = false;
                 spaceTarget.showOutline = false;
-                spaceTarget.addTransparent = false;
+                spaceTarget.isTransparented = false;
+                spaceTarget.addTransparent = true;
+                showAdvanced = true;
+
 
                 spaceTarget.databasePrefab = InstantiateDatabase(spaceTarget.databaseID, spaceTarget.transform,(go)=> 
                 {
@@ -230,7 +233,7 @@ namespace SpaceTarget.EditorClasses
 
         private GameObject InstantiateDatabase(string ID, Transform parent, System.Action<GameObject> callback = null)
         {
-            string obj = Path.Combine("Assets", "Editor", "SpaceTargetAssets", "Database", ID, "sfm_ar.obj");
+            string obj = Path.Combine("Assets", "Editor", "SpaceTargetAssets", "Database", ID, "sfm_unity.obj");
             string objFullPath = Path.Combine(System.Environment.CurrentDirectory, obj);
             FileInfo fi = new FileInfo(objFullPath);
             if (fi.Exists)

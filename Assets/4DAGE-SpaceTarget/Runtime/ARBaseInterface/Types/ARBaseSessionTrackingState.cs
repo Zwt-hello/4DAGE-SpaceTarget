@@ -1,6 +1,9 @@
 ﻿
 namespace SpaceTarget.Runtime
 {
+    /// <summary>
+    /// AR Session tracking state
+    /// </summary>
     public enum ARBaseSessionTrackingState 
     {
         /// <summary>

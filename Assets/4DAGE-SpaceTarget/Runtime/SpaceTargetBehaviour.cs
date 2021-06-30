@@ -3,6 +3,9 @@ using System;
 
 namespace SpaceTarget.Runtime
 {
+    /// <summary>
+    /// SpaceTarget tracking behaviour
+    /// </summary>
     public sealed class SpaceTargetBehaviour :SpaceTargetSubsystem
     {
         /// <summary>
@@ -31,9 +34,10 @@ namespace SpaceTarget.Runtime
 
 #if UNITY_EDITOR
             Debug.Log("--Editor mode does not support SpaceTarget,Please run on Android / iOS mobile device.--");
-#endif
+#else
             m_ARBase = mARProvider.Create();
             SubsystemStart(OnTargetFound, OnTargetLost, OnTargetPoseChange);
+#endif
         }
 
         /// <summary>
@@ -67,16 +71,16 @@ namespace SpaceTarget.Runtime
             OnTargetLost -= TargetLostCallback;
         }
 
-        #endregion
+#endregion
 
-        #region  Private Methods
+#region  Private Methods
 
         /// <summary>
         /// AR Instance , which is implementioned
         /// </summary>
         private IARBase m_ARBase;
-        private ARBaseData.Intrinsics m_ARCameraIntrinsics;
-        private ARBaseData.CameraImageData m_ARCameraImageData;
+        private ARBaseCameraIntrinsics m_ARCameraIntrinsics;
+        private ARBaseCameraImageData m_ARCameraImageData;
 
         /// <summary>
         /// Frame Call
@@ -128,6 +132,6 @@ namespace SpaceTarget.Runtime
 #endif
         }
 
-        #endregion
+#endregion
     }
 }

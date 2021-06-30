@@ -11,13 +11,13 @@ public class ThirdPartyARInterfaceTemplate : IARBase
         //to do
     }
 
-    public virtual ARBaseData.Intrinsics ARCameraIntrinsics()
+    public virtual ARBaseCameraIntrinsics ARCameraIntrinsics()
     {
         throw new System.NotImplementedException();
         //to do
     }
 
-    public virtual ARBaseData.CameraImageData ARCameraRawImageData()
+    public virtual ARBaseCameraImageData ARCameraRawImageData()
     {
         throw new System.NotImplementedException();
         //to do

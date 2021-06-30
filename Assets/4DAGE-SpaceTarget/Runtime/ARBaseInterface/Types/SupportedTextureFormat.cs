@@ -1,6 +1,9 @@
 ﻿
 namespace SpaceTarget.Runtime
 {
+    /// <summary>
+    /// Supported color texture format
+    /// </summary>
     public enum SupportedTextureFormat
     {
         /// <summary>
