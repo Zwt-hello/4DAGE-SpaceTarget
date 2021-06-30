@@ -61,9 +61,14 @@ Using ARKit or ARCore
 
 ## Configration Target
 
-1. Click **Add Database** button to open database editor panel，input Taget id to download Datas.
+1. Click **Add Database** button to open database editor panel.
 
-	*How to get datas？please read [How to get SpaceTarget data](http://... "How to get SpaceTarget data")*
+	*How to get datas？please read [How to get SpaceTarget data](http://... "How to get SpaceTarget data") , 
+	If all goes well , you will get a result of your scan scene .*
+
+	e.g : https://www.4dkankan.com/spc.html?m=Html34yLt
+	
+	The **Target Data ID** is `Html34yLt` , please input to download this data. 
 
 	![](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/t3.jpg)
 
