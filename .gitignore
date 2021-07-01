@@ -11,6 +11,8 @@
 /[Mm]emoryCaptures/
 /_DocSite/
 /Documentation/
+/Documentation_CN/
+/Documentation_EN/
 /Assets/**/obj*
 *.no
 

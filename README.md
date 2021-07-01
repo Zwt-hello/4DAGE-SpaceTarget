@@ -26,9 +26,19 @@ This plug-in Not contain target Database , you need to use a supported device to
 > - `iOS 12 +`
 
 # Installation
-- [UnityPackage](http://... "从官网下载package")
-- [Install from Github](http://.. "从Github安装")
+You can use **unitypackage** or **UPM** to install .
+### UnityPackage
+[Download Package](http://... "从官网下载package")
 
+### Unity Package Manager
+**Packages/manifest.json** Add a reference to the repository to a file in your project directory .
+```
+{
+   " dependencies " : {
+     "com.4dage.spacetarget": "https://github.com/Zwt-hello/4DAGE-SpaceTarget.git#upm"
+  }
+}
+```
 # Features
 - Spatial recognition and environment tracking
 - Support ARKit and ARCore
@@ -56,7 +66,7 @@ Using ARKit or ARCore
 
 	**Samples scene**
 	```
-	Assets/4DAGE-SpaceTarget/Samples/Base on ARFoundation Example/Scene/SpaceTarget-base on ARFoundation Example
+	Assets/4DAGE-SpaceTarget/Samples/Base on ARFoundation Example/Scene/ARFoundation Example
 	```
 
 ## Configration Target
@@ -310,11 +320,11 @@ Interface Description：
 
 	Template：
 
-	> SpaceTarget also provide an implemention template [ThirdPartyARInterfaceTemplate.cs](http://... "ThirdPartyARInterfaceTemplate.cs")
+	> SpaceTarget also provide an implemention template [ThirdPartyARInterfaceTemplate.cs](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Assets/4DAGE-SpaceTarget/ThirdParty%20AR%20Implemention%20Template/ThirdPartyARInterfaceTemplate.cs "ThirdPartyARInterfaceTemplate.cs")
 
 	Need demo ? 
 
-	> Please see ARKit、ARCore how to implement [ARFoundationImplemention.cs](http://... "ARFoundationImplemention.cs")
+	> Please see ARKit、ARCore how to implement [ARFoundationImplemention.cs](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Assets/4DAGE-SpaceTarget/Samples/Base%20on%20ARFoundation%20Example/Scripts/ARFoundation%20Implemention/ARFoundationImplemention.cs "ARFoundationImplemention.cs")
 
 1. Create an interface provider for the implemented interface
 

@@ -1,5 +1,5 @@
 # Space Targets in Unity
-SpaceTarget是4DAGE支持的空间识别插件。通过使用4DKK-Pro三维相机作为空间建模的采集工具，将生成的模型数据作为空间识别的识别数据，你可以轻松地将AR增强现实内容无缝叠加到现实环境中。通过此插件可以创建游戏、导航应用、空间标示，并应用在办公室、工厂车间、公寓、公共场所、博物馆等不同空间场所。
+SpaceTarget是一个支持空间识别定位的插件。通过使用4DKK-Pro三维相机作为空间建模的采集工具，将生成的模型数据作为空间识别的识别数据，你可以轻松地将AR增强现实内容无缝叠加到现实环境中。通过此插件可以创建游戏、导航应用、空间标示，并应用在办公室、工厂车间、公寓、公共场所、博物馆等不同空间场所。
 
 ![space target](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/view.gif)
 
@@ -25,8 +25,20 @@ SpaceTarget是4DAGE支持的空间识别插件。通过使用4DKK-Pro三维相�
  `iOS 12 +`
 
 # 安装
-- [从官网下载Package](http://... "从官网下载package")
-- [从Github安装](http://.. "从Github安装")
+你可以选择使用 **unitypackage** 包安装或者 **UPM** 的方式。
+### UnityPackage
+[Download Package](http://... "从官网下载package")
+
+### Unity Package Manager
+在 **Packages/manifest.json** 添加
+```
+{
+   " dependencies " : {
+     "com.4dage.spacetarget": "https://github.com/Zwt-hello/4DAGE-SpaceTarget.git#upm"
+  }
+}
+```
+或者在编辑器中打开 **Package Manager** ，点击 **+** ， 选择 **Add package from git URL** , 输入  `https://github.com/Zwt-hello/4DAGE-SpaceTarget.git#upm`
 
 # 功能
 - 支持空间识别和环境跟踪功能
