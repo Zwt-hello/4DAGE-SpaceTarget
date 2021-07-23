@@ -10,26 +10,26 @@ namespace SpaceTarget.Runtime
         /// <summary>
         /// The realtime pose of ARCamera
         /// </summary>
-        /// <returns>ARCamera pose</returns>
+        /// <returns></returns>
         Pose ARCameraTrackingPose();
 
         /// <summary>
         /// ARCamera intrinsics
         /// </summary>
-        /// <returns>Camera intrinsics</returns>
+        /// <returns></returns>
         ARBaseCameraIntrinsics ARCameraIntrinsics();
 
         /// <summary>
         /// ARCamera raw image data , 
         /// Please select the corresponding TextureFormat(RGBA32 or RGB24) to implement
         /// </summary>
-        /// <returns>Camera raw image data</returns>
+        /// <returns></returns>
         ARBaseCameraImageData ARCameraRawImageData();
 
         /// <summary>
         /// ARSession tracking state
         /// </summary>
-        /// <returns>ARSession tracking state</returns>
+        /// <returns></returns>
         ARBaseSessionTrackingState ARSessionTrackingState();
         
     }
