@@ -112,6 +112,7 @@ typedef struct
 
 BOOL  _iOS_init_FKARSFM(char *operationPath,char *sfmARBinFilePath,char *sfmARDescFilePath,char *sfmARfeatFilePath);
 
+/*相机状态  "camStatus": 0 表示之前ARkitARCore Lose了一次。"camStatus": 1 表示ARkitARCore 正常运行*/
 BOOL _iOS_process_FKARSFM(AR_SFM_Point          position,
                           AR_SFM_rotation       rotation,
                           AR_SFM_focalLength    focalLength,
@@ -123,7 +124,8 @@ BOOL _iOS_process_FKARSFM(AR_SFM_Point          position,
                           char*                 csys_x,
                           char*                 csys_y,
                           char*                 csys_z,
-                          int                   platform);
+                          int                   platform,
+                          int                   camStatus);
 
 BOOL _iOS_process_FKARSFM_RGB24(AR_SFM_Point               position,
                                 AR_SFM_rotation            rotation,
@@ -136,7 +138,8 @@ BOOL _iOS_process_FKARSFM_RGB24(AR_SFM_Point               position,
                                 char*                      csys_x,
                                 char*                      csys_y,
                                 char*                      csys_z,
-                                int                        platform);
+                                int                        platform,
+                                int                        camStatus);
 
 
 char* _iOS_get_result_FKARSFM();
@@ -147,6 +150,8 @@ void _iOS_close_FKARSFM();
 int _iOS_testhaha();
 
 int _iOS_setDebug(int isDebug);
+
+int _iOS_setUE4DebugPath(int isDebug);
 
 }
 

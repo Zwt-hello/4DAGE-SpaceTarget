@@ -68,10 +68,27 @@ public class ARFoundationImplemention :IARBase
             image.Dispose();
         }
         //m_CameraTexture.Apply();
+        //System.IO.File.WriteAllBytes(Application.persistentDataPath + "/t.jpg", m_CameraTexture.EncodeToJPG());
 
         data.rawImageData = rawTextureData.ToArray();
         data.supportedTextureFormat = SupportedTextureFormat.RGB24;
-        data.rawImageOrientation = CameraImageOrientation.LEFT;//Tip: Save raw image to local to see which direction is 
+        //Set rawImage orientation
+        //Tip: Save raw image to local to see which direction is 
+        switch (Screen.orientation)
+        {
+            case ScreenOrientation.LandscapeLeft:
+                data.rawImageOrientation = CameraImageOrientation.NONE;
+                break;
+            case ScreenOrientation.LandscapeRight:
+                data.rawImageOrientation = CameraImageOrientation.UPSIDE_DOWN;
+                break;
+            case ScreenOrientation.Portrait:
+                data.rawImageOrientation = CameraImageOrientation.LEFT;
+                break;
+            case ScreenOrientation.PortraitUpsideDown:
+                data.rawImageOrientation = CameraImageOrientation.RIGHT;
+                break;
+        }
 
         return data;
     }

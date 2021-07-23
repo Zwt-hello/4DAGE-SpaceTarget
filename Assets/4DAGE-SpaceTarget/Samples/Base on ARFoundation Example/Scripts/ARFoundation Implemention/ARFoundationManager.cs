@@ -3,6 +3,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Unity.Collections;
 using SpaceTarget.Runtime;
+using System.Collections;
 
 public class ARFoundationManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class ARFoundationManager : MonoBehaviour
 
     private void Start()
     {
-        Initialization();
+        StartCoroutine(CheckDeviceSupport(() => Initialization()));
     }
     private void OnDestroy()
     {
@@ -28,17 +29,19 @@ public class ARFoundationManager : MonoBehaviour
         m_SpaceTarget.StartTracking(mARProvider);
 
         //Use AR Anchor to anchored the target
-        m_SpaceTarget.OnTargetPoseChange+=((target, pose) =>
-        {
-            m_ARAnchorManager.AddAnchor(pose);
-            mAnchorTarget = target;
-        });
+        m_SpaceTarget.OnTargetPoseChange += ((target, pose) =>
+          {
+              m_ARAnchorManager.AddAnchor(pose);
+              mAnchorTarget = target;
+          });
 
         if (mAnchorTarget != null)
         {
             RegisterARAnchorChangeEvent(mAnchorTarget);
         }
-        
+
+        //ARFoundation setting
+        m_ARCameraManager.focusMode = CameraFocusMode.Fixed;
         ARSession.stateChanged += (sessionState) =>
         {
             if (sessionState.state == ARSessionState.SessionTracking)
@@ -84,6 +87,23 @@ public class ARFoundationManager : MonoBehaviour
         }
     }
 
+    IEnumerator CheckDeviceSupport(System.Action callback)
+    {
+        if(ARSession.state == ARSessionState.None||ARSession.state == ARSessionState.CheckingAvailability)
+        {
+            yield return ARSession.CheckAvailability();
+        }
+        if(ARSession.state == ARSessionState.Unsupported)
+        {
+            GameObject tip = Instantiate(Resources.Load("UnSupportTipUI") as GameObject);
+            yield return new WaitForSeconds(5f);
+            Destroy(tip);
+        }
+        else
+        {
+            callback?.Invoke();
+        }
+    } 
     private void RegisterARAnchorChangeEvent(Transform anchorTarget)
     {
         m_ARAnchorManager.anchorsChanged += (args) =>

@@ -79,49 +79,28 @@ namespace SpaceTarget.EditorClasses
                     spaceTarget.visiblePrefab = EditorGUILayout.Toggle("Visible Database", spaceTarget.visiblePrefab);
                     spaceTarget.addOcclusion = EditorGUILayout.Toggle("Add Occlusion", spaceTarget.addOcclusion);
                     
-                    //编辑器显示模型
+                    //visible model
                     if (spaceTarget.visiblePrefab)
                     {
                         spaceTarget.databasePrefab.SetActive(true);
 
-                        //是否透明
+                        //transparent
                         spaceTarget.addTransparent = EditorGUILayout.Toggle("Transparent Database", spaceTarget.addTransparent);
                         if (spaceTarget.addTransparent) 
                         {
                             if (!spaceTarget.isTransparented)
                             {
                                 var meshs = spaceTarget.databasePrefab.GetComponentsInChildren<MeshRenderer>();
-                                for (int i = 0; i < meshs.Length; i++)
-                                {
-                                    Material[] tMats = meshs[i].sharedMaterials;
-                                    Material[] tempMats = new Material[tMats.Length];
-                                    for (int j = 0; j < tMats.Length; j++)
-                                    {
-                                        Material mat = new Material(tMats[j]);
-                                        mat.SetColor("_Color", new Color(1, 1, 1, 100f / 255f));
-                                        StandardShaderUtils.ChangeRenderMode(mat, StandardShaderUtils.BlendMode.Transparent);
-                                        tempMats[j] = mat;
-                                    }
-                                    meshs[i].sharedMaterials = tempMats;
-                                }
+                                ShowTransparentModel(meshs, true);
                                 spaceTarget.isTransparented = true;
                             }
-                            
                         }
                         else
                         {
                             if (spaceTarget.isTransparented)
                             {
                                 var meshs = spaceTarget.databasePrefab.GetComponentsInChildren<MeshRenderer>();
-                                for (int i = 0; i < meshs.Length; i++)
-                                {
-                                    Material[] tMats = meshs[i].sharedMaterials;
-                                    for (int j = 0; j < tMats.Length; j++)
-                                    {
-                                        StandardShaderUtils.ChangeRenderMode(tMats[j], StandardShaderUtils.BlendMode.Opaque);
-                                    }
-                                    meshs[i].sharedMaterials = tMats;
-                                }
+                                ShowTransparentModel(meshs, false);
                                 spaceTarget.isTransparented = false;
                             }
                         }
@@ -130,46 +109,21 @@ namespace SpaceTarget.EditorClasses
                     {
                         spaceTarget.databasePrefab.SetActive(false);
                     }
-                    //显示遮罩模型
+                    //show occlusion model
                     if (spaceTarget.addOcclusion) 
                     {
                         spaceTarget.showOutline = EditorGUILayout.Toggle("Show Outline", spaceTarget.showOutline);
                         if (spaceTarget.occlusionPrefab == null)
                             spaceTarget.occlusionPrefab = InstantiateDatabase(spaceTarget.databaseID, spaceTarget.transform, (go)=> 
                             {
-                                //Instantiate Occlusion model
-                                go.name = "--Occlusion Model--";
-                                go.hideFlags = HideFlags.HideInHierarchy;
-                                for (int i = 0; i < go.transform.childCount; i++)
-                                {
-                                    go.transform.GetChild(i).gameObject.hideFlags = HideFlags.HideInHierarchy;
-                                }
-                                var meshs = go.GetComponentsInChildren<Renderer>();
-                                for (int i = 0; i < meshs.Length; i++)
-                                {
-                                    Material[] mats = meshs[i].sharedMaterials;
-                                    for(int j = 0; j < mats.Length; j++)
-                                    {
-                                        var maskMat = new Material(Shader.Find("SpaceTarget/DepthMask"));
-                                        mats[j] = maskMat;
-                                    }
-                                    meshs[i].materials = mats;
-                                }
+                                ShowOcclusionModel(go);
                             });
                         if (spaceTarget.showOutline)
                         {
                             if (spaceTarget.occlusionPrefab != null&& spaceTarget.occlusionPrefab.GetComponentInChildren<Renderer>().sharedMaterial.name!= "SpaceTarget/DepthContour")
                             {
                                 var meshs= spaceTarget.occlusionPrefab.GetComponentsInChildren<Renderer>();
-                                for (int i = 0; i < meshs.Length; i++)
-                                {
-                                    Material[] mats = meshs[i].sharedMaterials;
-                                    for(int j = 0; j < mats.Length; j++)
-                                    {
-                                        mats[j] = new Material(Shader.Find("SpaceTarget/DepthContour"));
-                                    }
-                                    meshs[i].materials = mats;
-                                }
+                                ShowOutline(meshs, true);
                             }
                         }
                         else
@@ -177,15 +131,7 @@ namespace SpaceTarget.EditorClasses
                             if (spaceTarget.occlusionPrefab != null && spaceTarget.occlusionPrefab.GetComponentInChildren<Renderer>().sharedMaterial.name != "SpaceTarget/DepthMask") 
                             {
                                 var meshs = spaceTarget.occlusionPrefab.GetComponentsInChildren<Renderer>();
-                                for (int i = 0; i < meshs.Length; i++)
-                                {
-                                    Material[] mats = meshs[i].sharedMaterials;
-                                    for (int j = 0; j < mats.Length; j++)
-                                    {
-                                        mats[j] = new Material(Shader.Find("SpaceTarget/DepthMask"));
-                                    }
-                                    meshs[i].materials = mats;
-                                }
+                                ShowOutline(meshs, false);
                             }
                         }
                     }
@@ -209,7 +155,104 @@ namespace SpaceTarget.EditorClasses
                 EditorUtility.SetDirty(spaceTarget);
         }
 
-        
+        private void ShowTransparentModel(MeshRenderer[] meshs,bool transparent)
+        {
+            if (transparent)
+            {
+                for (int i = 0; i < meshs.Length; i++)
+                {
+                    Material[] tMats = meshs[i].sharedMaterials;
+                    Material[] tempMats = new Material[tMats.Length];
+                    for (int j = 0; j < tMats.Length; j++)
+                    {
+                        Material mat = new Material(tMats[j]);
+                        if(mat.shader.name == "Standard")
+                        {
+                            mat.SetColor("_Color", new Color(1, 1, 1, 100f / 255f));
+                            StandardShaderUtils.ChangeRenderMode(mat, StandardShaderUtils.BlendMode.Transparent);
+                            tempMats[j] = mat;
+                        }
+                        else
+                        {
+                            //vertex color shader
+                            mat.SetFloat("_AlphaScale", 0.6f);
+                            tempMats[j] = mat;
+                        }
+                       
+                    }
+                    meshs[i].sharedMaterials = tempMats;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < meshs.Length; i++)
+                {
+                    Material[] tMats = meshs[i].sharedMaterials;
+                    for (int j = 0; j < tMats.Length; j++)
+                    {
+                        if (tMats[j].shader.name == "Standard")
+                        {
+                            StandardShaderUtils.ChangeRenderMode(tMats[j], StandardShaderUtils.BlendMode.Opaque);
+                        }
+                        else
+                        {
+                            tMats[j].SetFloat("_AlphaScale", 1f);
+                        }
+                    }
+                    meshs[i].sharedMaterials = tMats;
+                }
+            }
+        }
+
+        private void ShowOcclusionModel(GameObject go)
+        {
+            //Instantiate Occlusion model
+            go.name = "--Occlusion Model--";
+            go.hideFlags = HideFlags.HideInHierarchy;
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                go.transform.GetChild(i).gameObject.hideFlags = HideFlags.HideInHierarchy;
+            }
+            var meshs = go.GetComponentsInChildren<Renderer>();
+            for (int i = 0; i < meshs.Length; i++)
+            {
+                Material[] mats = meshs[i].sharedMaterials;
+                for (int j = 0; j < mats.Length; j++)
+                {
+                    var maskMat = new Material(Shader.Find("SpaceTarget/DepthMask"));
+                    mats[j] = maskMat;
+                }
+                meshs[i].materials = mats;
+            }
+        }
+
+        private void ShowOutline(Renderer[] meshs,bool show)
+        {
+            if (show)
+            {
+                for (int i = 0; i < meshs.Length; i++)
+                {
+                    Material[] mats = meshs[i].sharedMaterials;
+                    for (int j = 0; j < mats.Length; j++)
+                    {
+                        mats[j] = new Material(Shader.Find("SpaceTarget/DepthContour"));
+                    }
+                    meshs[i].materials = mats;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < meshs.Length; i++)
+                {
+                    Material[] mats = meshs[i].sharedMaterials;
+                    for (int j = 0; j < mats.Length; j++)
+                    {
+                        mats[j] = new Material(Shader.Find("SpaceTarget/DepthMask"));
+                    }
+                    meshs[i].materials = mats;
+                }
+            }
+        }
 
         private DirectoryInfo dataDirInfo;
         private List<string> GetDatabaseList()
@@ -233,19 +276,30 @@ namespace SpaceTarget.EditorClasses
 
         private GameObject InstantiateDatabase(string ID, Transform parent, System.Action<GameObject> callback = null)
         {
-            string obj = Path.Combine("Assets", "Editor", "SpaceTargetAssets", "Database", ID, "sfm_unity.obj");
-            string objFullPath = Path.Combine(System.Environment.CurrentDirectory, obj);
-            FileInfo fi = new FileInfo(objFullPath);
+            string vertexColorPrefab = Path.Combine("Assets", "Editor", "SpaceTargetAssets", "Database", ID, "sfm_unity.prefab");
+            string prefabFullPath = Path.Combine(System.Environment.CurrentDirectory, vertexColorPrefab);
+            FileInfo fi = new FileInfo(prefabFullPath);
             if (fi.Exists)
             {
-                var go = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(obj), parent);
+                var go = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(vertexColorPrefab), parent);
                 callback?.Invoke(go);
                 return go;
             }
             else
             {
-                if (ID != "---Empty---")
-                    Debug.LogErrorFormat("Database:{0},does not exists", ID);
+                string obj = Path.Combine("Assets", "Editor", "SpaceTargetAssets", "Database", ID, "sfm_unity.obj");
+                FileInfo objFi = new FileInfo(obj);
+                if (objFi.Exists)
+                {
+                    var go = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(obj), parent);
+                    callback?.Invoke(go);
+                    return go;
+                }
+                else
+                {
+                    if (ID != "---Empty---")
+                        Debug.LogErrorFormat("Database:{0},does not exists", ID);
+                }
                 return null;
             }
         }
