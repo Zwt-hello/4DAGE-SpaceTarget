@@ -4,10 +4,12 @@
 
 SpaceTarget is an environment tracking feature plug-in that enables you to track and augment areas and spaces. By using the 4DKK-Pro 3D camera as an accurate model of the space to create an Space Target Database, you can easily deliver augmentations to stationary objects in the scanned environment. This enables creating games, navigation applications, and spatial instructions that are all using the surroundings as interactive elements to be explored. Offices, factory floors, apartments, public spaces, museums, and many more areas are ideal sites for Space Targets.
 
-![space target](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/view.gif)
+![sample1](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/view.gif)
+![sample2](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/outdoor1.gif)
+![sample3](https://github.com/Zwt-hello/4DAGE-SpaceTarget/blob/master/Document/image/outdoor2.gif)
 
 
-This plug-in Not contain target Database , you need to use a supported device to Scan and Create your own spatial data。Please read [How to get SpaceTarget data](http://... "数据采集") doc 。
+This plug-in Not contain target Database , you need to use a supported device to Scan and Create your own spatial data。Please read [How to get SpaceTarget data](https://www.4dkankan.com/#/developer/useCollection "数据采集") doc 。
 
 # Requirements
 > - Unity Editor
@@ -28,7 +30,7 @@ This plug-in Not contain target Database , you need to use a supported device to
 # Installation
 You can use **unitypackage** or **UPM** to install .
 ### UnityPackage
-[Download Package](http://... "从官网下载package")
+[Download Package](https://www.4dkankan.com/#/developer/introduce "从官网下载package")
 
 ### Unity Package Manager
 **Packages/manifest.json** Add a reference to the repository to a file in your project directory .
@@ -73,7 +75,7 @@ Using ARKit or ARCore
 
 1. Click **Add Database** button to open database editor panel.
 
-	*How to get datas？please read [How to get SpaceTarget data](http://... "How to get SpaceTarget data") , 
+	*How to get datas？please read [How to get SpaceTarget data](https://www.4dkankan.com/#/developer/useCollection "How to get SpaceTarget data") , 
 	If all goes well , you will get a result of your scan scene .*
 
 	e.g : https://www.4dkankan.com/spc.html?m=Html34yLt
