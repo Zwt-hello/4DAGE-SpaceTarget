@@ -31,7 +31,6 @@ namespace SpaceTarget.Runtime
         /// <param name="mARProvider">AR provider</param>
         public void StartTracking(IARBaseProvider mARProvider)
         {
-
 #if UNITY_EDITOR
             Debug.Log("--Editor mode does not support SpaceTarget,Please run on Android / iOS mobile device.--");
 #else
@@ -47,6 +46,18 @@ namespace SpaceTarget.Runtime
         {
             m_ARBase = null;
             SubsystemStop();
+        }
+
+        /// <summary>
+        /// Set database ID ,Call this method before StartTracking when runtime change target id
+        /// </summary>
+        /// <param name="targetDatabaseID">database ID</param>
+        public void SetDatabase(string targetDatabaseID)
+        {
+            if (targetDatabaseID != string.Empty)
+            {
+                databaseID = targetDatabaseID;
+            }
         }
 
         /// <summary>
@@ -131,7 +142,6 @@ namespace SpaceTarget.Runtime
             OnUpdate();
 #endif
         }
-
-#endregion
+        #endregion
     }
 }
