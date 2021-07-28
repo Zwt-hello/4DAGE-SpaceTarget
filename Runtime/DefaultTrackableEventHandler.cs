@@ -9,7 +9,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour
     public UnityEvent OnTargetFound;
     public UnityEvent OnTargetLost;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         mSpaceTargetTrackableBehaviour = GetComponent<SpaceTargetBehaviour>();
         if (mSpaceTargetTrackableBehaviour)
