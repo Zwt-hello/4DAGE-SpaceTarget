@@ -5,7 +5,7 @@ To view detailed release notes, go to: https://www.4dkankan.com/#/developer/intr
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.0.1] - 2020-08-11
+## [1.0.1] - 2021-08-11
 ### Added
 - Add a server options config
 
