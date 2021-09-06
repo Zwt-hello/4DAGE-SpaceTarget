@@ -153,6 +153,9 @@ int _iOS_setDebug(int isDebug);
 
 int _iOS_setUE4DebugPath(int isDebug);
 
+//设置高度要多大的时候才开始将图片缩减
+int _iOS_setHeightShouldCut(int height);
+
 }
 
 

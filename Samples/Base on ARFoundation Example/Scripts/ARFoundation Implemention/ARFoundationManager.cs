@@ -60,7 +60,7 @@ public class ARFoundationManager : MonoBehaviour
         using (var configurations = m_ARCameraManager.GetConfigurations(Allocator.Temp))
         {
             int index = 0;
-            int compareW = 0;
+            int compareH = 0;
             for (int i = 0; i < configurations.Length; i++)
             {
                 Debug.LogFormat("Camera configurations {0}：{1}", i, configurations[i].resolution);
@@ -68,14 +68,14 @@ public class ARFoundationManager : MonoBehaviour
                 if (i == 0)
                 {
                     //init compareW
-                    compareW = configurations[i].width;
+                    compareH = configurations[i].height;
                     index = i;
                 }
                 else
                 {
-                    if (compareW > configurations[i].width)
+                    if (compareH > configurations[i].height)
                     {
-                        compareW = configurations[i].width;
+                        compareH = configurations[i].height;
                         index = i;
                     }
                 }
