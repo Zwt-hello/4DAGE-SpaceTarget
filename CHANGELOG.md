@@ -1,21 +1,22 @@
-# 1.0.0 (2021-06-17)
+# Changelog
+All notable changes to the 4DAGE SpaceTarget package will be documented in this file.
+To view detailed release notes, go to: https://www.4dkankan.com/#/developer/introduce
 
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-### Bug Fixes
+## [1.0.2] - 2021-09-06
+###Changed
+- Update iOS Native Plugin , Performance improvement.
 
-* config error ([0e28bac](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/0e28bacf0a0b0b4aca78f4db0ba63e7db416cc74))
-* update example scene ([fdd8e30](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/fdd8e306a31876872c70d757f1cc81e2c2545382))
+## [1.0.1] - 2021-08-11
+### Added
+- Add a server options config
 
+## [1.0.0] - 2021-07-30
+### This is the first release of the SpaceTarget package for multi-platform AR.
 
-### Features
-
-* new feature ([1886b49](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/1886b496b17f99de99495ab4972408f683eb1cda))
-* Preview.1 Version ([6606389](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/66063895636c4aa25ac6d846aca9535e9658b783))
-
-
-### Reverts
-
-* Revert "Revert "Create auto release action"" ([bb2069e](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/bb2069e89f6c52543ad7a480137307dfbdae6b63))
-* Revert "Revert "Create auto release action"" ([fb2f3b2](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/fb2f3b282b61646dfba55d0b07e7b82ca9955b4d))
-* Revert "Create .release-it.yml" ([9b59aac](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/9b59aac7e1bf5518725bb71c02748e41ecaac821))
-* Revert "Create auto release action" ([4812fe0](https://github.com/Zwt-hello/4DAGE-SpaceTarget/commit/4812fe0ed5ffc3c776a947efc527fb8dfb0f5a10))
+In this release we are shipping a working iteration of the SpaceTarget package for
+Unity's native multi-platform AR support.
+Included in the package are static libraries, configuration files, binaries
+and project files needed to adapt ARFoundation to the Unity multi-platform AR API.
