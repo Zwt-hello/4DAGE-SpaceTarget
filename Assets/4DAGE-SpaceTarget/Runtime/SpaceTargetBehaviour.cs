@@ -37,6 +37,7 @@ namespace SpaceTarget.Runtime
             m_ARBase = mARProvider.Create();
             SubsystemStart(OnTargetFound, OnTargetLost, OnTargetPoseChange);
 #endif
+            Debug.LogFormat("Current Database id : {0}", databaseID);
         }
 
         /// <summary>
